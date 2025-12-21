@@ -37,15 +37,12 @@ class RiotClient:
 				lockfile_content = lockfile_content.split(":")
 				
 				lockfile_dict: dict = {
-
 					"name": lockfile_content[0],
 					"pid": lockfile_content[1],
 					"port": lockfile_content[2],
 					"token": b64encode(f"riot:{lockfile_content[3]}".encode()).decode(),
 					"protocol": lockfile_content[4]
-
 				}
-
 			return lockfile_dict
 
 		except:
@@ -78,14 +75,11 @@ class RiotClient:
 				verify=False
 			)
 			headers: dict = {
-
 				"X-Riot-ClientPlatform": "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9",
 				"X-Riot-ClientVersion": self.fetch_version(),
 				"X-Riot-Entitlements-JWT": response.json()['token'],
 				"Authorization": f"Bearer {response.json()['accessToken']}"
-
 			}
-
 			return headers
 
 		except:
