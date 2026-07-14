@@ -8,6 +8,7 @@ from os import path
 
 disable_warnings(InsecureRequestWarning)
 
+
 class RiotClient:
 	def __init__(self) -> None:
 		with open("config.json") as cfg:
